@@ -5,7 +5,7 @@ import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Photo from "./screens/Photo";
-import Porfolio from "./screens/Porfolio";
+import Portfolio from "./screens/Portfolio";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,7 +32,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Photo" component={Photo} />
-        <Stack.Screen name="Porfolio" component={Porfolio} />
+        <Stack.Screen name="Portfolio" component={Portfolio} />
       </Stack.Navigator>
     </NavigationContainer>
   );

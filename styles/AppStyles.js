@@ -8,7 +8,7 @@ export const globalStyles = StyleSheet.create({
   titleText: {
     fontSize: 30,
     padding: 9,
-    fontFamily: "inriaSans-BoldItalic",
+    fontFamily: "inriaSans-bold",
   },
   profileImg:{
     width: 350,
@@ -29,4 +29,8 @@ export const globalStyles = StyleSheet.create({
     padding: 15,
     alignItems: "center"
   },
+  text:{
+    fontFamily: "inriaSans-BoldItalic",
+    fontSize: 25,
+  }
 });

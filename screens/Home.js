@@ -1,4 +1,12 @@
-import { Button, FlatList, Image, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+} from "react-native";
 import React from "react";
 import { globalStyles } from "../styles/AppStyles";
 
@@ -54,14 +62,19 @@ const Home = ({ navigation }) => {
 
   const renderProfiles = ({ item }) => {
     return (
-      <View style={globalStyles.profilItem}>
+      <Pressable
+        style={globalStyles.profilItem}
+        onPress={() =>
+          navigation.navigate("Portfolio", item)
+        }
+      >
         <Text style={globalStyles.titleText}>{item.name}</Text>
         <Image source={{ uri: item.img }} style={globalStyles.profileImg} />
         <View style={globalStyles.infoContainer}>
           <Text style={globalStyles.info}>{item.country} </Text>
           <Text style={globalStyles.info}>{item.totalImg} </Text>
         </View>
-      </View>
+      </Pressable>
     );
   };
 
