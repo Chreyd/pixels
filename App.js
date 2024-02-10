@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { MaterialIcons } from "@expo/vector-icons";
 
 // > 16 | import * as Reanimated from 'react-native-reanimated';
 
@@ -12,6 +13,7 @@ import Photo from "./screens/Photo";
 import Portfolio from "./screens/Portfolio";
 import colors from "./styles/colors";
 import Faq from "./screens/Faq";
+import MaterialIconsHeader from "./components/MaterialIconsHeader";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -27,6 +29,14 @@ function MyDrawer() {
           backgroundColor: colors.lightBrown,
         },
         headerTintColor: colors.white,
+        drawerActiveTintColor: "red",
+        drawerActiveBackgroundColor: "lightseagreen",
+        drawerInactiveBackgroundColor: "white",
+        drawerStyle: {
+          width: 250,
+          backgroundColor: "#333",
+          marginVertical: 30,
+        },
       }}
     >
       <Drawer.Screen
@@ -34,6 +44,16 @@ function MyDrawer() {
         component={Home}
         options={{
           title: "Accueil",
+          drawerLabel: "Tous les Membres",
+          drawerIcon: ({color}) => {
+            return (
+              <MaterialIcons
+                name="supervised-user-circle"
+                size={24}
+                color={color}
+              />
+            );
+          },
         }}
       />
       <Drawer.Screen
@@ -41,9 +61,14 @@ function MyDrawer() {
         component={Faq}
         options={{
           title: "Faq",
+          drawerIcon: ({color}) => {
+            return (
+              // <MaterialIcons name="question-answer" size={24} color={color} />
+              <MaterialIconsHeader  iconName='question-answer' iconColor={color}/>
+            );
+          },
         }}
       />
-      
     </Drawer.Navigator>
   );
 }
