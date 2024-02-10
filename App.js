@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
+import Home from "./screens/Home";
+import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  let [fontLoaded] = useFonts({
+    "inriaSans-bold": require("./assets/fonts/InriaSans-Bold.ttf"),
+    "inriaSans-BoldItalic": require("./assets/fonts/InriaSans-BoldItalic.ttf"),
+    "inriaSans-Italic": require("./assets/fonts/InriaSans-Italic.ttf"),
+    "inriaSans-Light": require("./assets/fonts/InriaSans-Light.ttf"),
+    "inriaSans-LightItalic": require("./assets/fonts/InriaSans-LightItalic.ttf"),
+    "inriaSans-Regular": require("./assets/fonts/InriaSans-Regular.ttf"),
+  });
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  if (!fontLoaded) {
+    return undefined;
+  } else {
+    SplashScreen.hideAsync();
+  }
+
+  return <Home />;
+}
