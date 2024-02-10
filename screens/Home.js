@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { globalStyles } from "../styles/AppStyles";
 import colors from "../styles/colors";
+import PressableItems from "../components/PressableItems";
 
 const Home = ({ navigation }) => {
   //   console.log(props);
@@ -66,22 +67,7 @@ const Home = ({ navigation }) => {
 
   const renderProfiles = ({ item }) => {
     return (
-      <Pressable
-        style={({ pressed }) => [
-          {
-            backgroundColor: pressed ? colors.clicked : colors.white,
-          },
-          globalStyles.profilItem,
-        ]}
-        onPress={() => navigation.navigate("Portfolio", item)}
-      >
-        <Text style={globalStyles.titleText}>{item.name}</Text>
-        <Image source={{ uri: item.img }} style={globalStyles.profileImg} />
-        <View style={globalStyles.infoContainer}>
-          <Text style={globalStyles.info}>{item.country} </Text>
-          <Text style={globalStyles.info}>{item.totalImg} </Text>
-        </View>
-      </Pressable>
+      <PressableItems item= {item} handleNavigate= {() => navigation.navigate("Portfolio", item)} />
     );
   };
 
