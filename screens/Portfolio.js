@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Button } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { globalStyles } from "../styles/AppStyles";
 import { useRoute } from "@react-navigation/native";
 
@@ -13,6 +13,17 @@ const Portfolio = ({ navigation, route }) => {
   const name = route.params.name;
   const country = route.params.country;
   const totalImg = route.params.totalImg;
+
+  navigation.setOptions({
+    title: `Portfolio de ${name}`,
+  });
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: `Portfolio de ${name}`,
+    }),
+    [navigation]
+  })
 
   return (
     <View style={globalStyles.container}>

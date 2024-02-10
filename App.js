@@ -30,28 +30,29 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ headerStyle: {
+              backgroundColor: "olive",
+            },
+            headerTintColor: colors.white,}}>
         <Stack.Screen
           name="Home"
           component={Home}
           options={{
-            title: "Accueil",
-            headerStyle: {
-              backgroundColor: "olive",
-            },
-            headerTintColor: colors.white,
+            // title: "Accueil",
           }}
         />
-        <Stack.Screen name="Photo" component={Photo} />
         <Stack.Screen
           name="Portfolio"
           component={Portfolio}
           options={{
             title: "Portfolio",
-            headerStyle: {
-              backgroundColor: "olive",
-            },
-            headerTintColor: colors.white,
+          }}
+        />
+        <Stack.Screen
+          name="Photo"
+          component={Photo}
+          options={{
+            title: "Photo",
           }}
         />
       </Stack.Navigator>

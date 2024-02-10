@@ -13,9 +13,9 @@ import colors from "../styles/colors";
 
 const Home = ({ navigation }) => {
   //   console.log(props);
-  //   console.log(navigation);
+    console.log(navigation); 
 
-  //   Affichage de data : partie 2
+
 
   /* 
   navigation.
@@ -26,6 +26,8 @@ const Home = ({ navigation }) => {
   popToTop: démonter tous les stacks e revenir au stack de départ
   pop: revenir à au stack précédent 
   */
+
+
   const DATA = [
     {
       id: "1",
