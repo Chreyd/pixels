@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Home from "./screens/Home";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
@@ -30,28 +30,50 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerStyle: {
-              backgroundColor: "olive",
-            },
-            headerTintColor: colors.white,}}>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "olive",
+          },
+          headerTintColor: colors.white,
+        }}
+      >
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{
-            // title: "Accueil",
-          }}
+          options={
+            {
+              // title: "Accueil",
+            }
+          }
         />
         <Stack.Screen
           name="Portfolio"
           component={Portfolio}
-          options={({route})=>{
-            return{
+          options={({ route }) => {
+            return {
               title: `Portfolio de ${route.params.name.toUpperCase()}`,
-              headerStyle:{
-                backgroundColor:  route.params.favColor
+              headerStyle: {
+                backgroundColor: route.params.favColor,
+              },
+              headerTintColor: "#fff",
 
-              }
-            }
+              headerTitle: () => {
+                return (
+                  <TouchableOpacity>
+                    <Text>Toto</Text>
+                  </TouchableOpacity>
+                );
+              },
+
+              headerRight: () => {
+                return (
+                  <TouchableOpacity>
+                    <Text>Toto</Text>
+                  </TouchableOpacity>
+                );
+              },
+            };
           }}
         />
         <Stack.Screen

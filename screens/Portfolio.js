@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View, Button, Image, Platform } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Image,
+  Platform,
+  TouchableOpacity,
+} from "react-native";
 import React, { useEffect, useLayoutEffect } from "react";
 import { globalStyles } from "../styles/AppStyles";
 import { useRoute } from "@react-navigation/native";
@@ -32,6 +40,13 @@ const Portfolio = ({ navigation, route }) => {
       // headerStyle: {
       //    backgroundColor: Platform.OS === "android" ? favColor : favColor,
       // },
+      headerLeft: () => {
+        return (
+          <TouchableOpacity onPress={()=>navigation.goBack()} >
+            <Text>go Back</Text>
+          </TouchableOpacity>
+        );
+      },
     }),
       [navigation];
   });
@@ -44,7 +59,6 @@ const Portfolio = ({ navigation, route }) => {
       <Text style={globalStyles.text}> {country} </Text>
       <Text style={globalStyles.text}> {totalImg} </Text>
       <Text style={globalStyles.text}> {favColor} </Text>
-
     </View>
   );
 };
