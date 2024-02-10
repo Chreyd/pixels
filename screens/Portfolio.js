@@ -23,16 +23,15 @@ const Portfolio = ({ navigation, route }) => {
   const name = route.params.name;
   const country = route.params.country;
   const totalImg = route.params.totalImg;
-
-
+  const favColor = route.params.favColor;
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: `Portfolio de ${name}`,
-      headerTitle: ()=><Logo/>,
-      headerStyle:{
-        backgroundColor: Platform.OS === 'android'? colors.lightBrown: 'blue'
-      }
+      // title: `Portfolio de ${name}`,
+      // headerTitle: () => <Logo />,
+      // headerStyle: {
+      //    backgroundColor: Platform.OS === "android" ? favColor : favColor,
+      // },
     }),
       [navigation];
   });
@@ -41,11 +40,11 @@ const Portfolio = ({ navigation, route }) => {
     <View style={globalStyles.container}>
       <Text style={globalStyles.text}> OS: {Platform.OS} </Text>
       <Text style={globalStyles.text}> Version: {Platform.Version} </Text>
-
-
       <Text style={globalStyles.text}> {name} </Text>
       <Text style={globalStyles.text}> {country} </Text>
       <Text style={globalStyles.text}> {totalImg} </Text>
+      <Text style={globalStyles.text}> {favColor} </Text>
+
     </View>
   );
 };
