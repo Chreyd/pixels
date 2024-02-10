@@ -13,7 +13,7 @@ export default Photo
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor: colors.bleuClair,
+    backgroundColor: "lightblue",
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

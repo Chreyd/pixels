@@ -4,7 +4,7 @@ import React from 'react'
 const Porfolio = () => {
   return (
     <View  style={styles.container}>
-      <Text style={styles.text}>Photo</Text>
+      <Text style={styles.text}>Porfolio</Text>
     </View>
   )
 }
@@ -13,7 +13,7 @@ export default Porfolio
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: colors.bleuClair,
+        backgroundColor: "lightblue",
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',

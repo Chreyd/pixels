@@ -2,8 +2,14 @@ import { StyleSheet, Text, View } from "react-native";
 import Home from "./screens/Home";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Photo from "./screens/Photo";
+import Porfolio from "./screens/Porfolio";
 
 SplashScreen.preventAutoHideAsync();
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   let [fontLoaded] = useFonts({
@@ -21,5 +27,13 @@ export default function App() {
     SplashScreen.hideAsync();
   }
 
-  return <Home />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Photo" component={Photo} />
+        <Stack.Screen name="Porfolio" component={Porfolio} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
