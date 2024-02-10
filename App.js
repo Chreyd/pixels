@@ -58,13 +58,13 @@ export default function App() {
               },
               headerTintColor: "#fff",
 
-              headerTitle: () => {
+/*               headerTitle: () => {
                 return (
                   <TouchableOpacity>
                     <Text>Toto</Text>
                   </TouchableOpacity>
                 );
-              },
+              }, */
 
               headerRight: () => {
                 return (

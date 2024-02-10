@@ -11,6 +11,9 @@ import React, { useEffect, useLayoutEffect } from "react";
 import { globalStyles } from "../styles/AppStyles";
 import { useRoute } from "@react-navigation/native";
 import colors from "../styles/colors";
+import MaterialIconsHeader from "../components/MaterialIconsHeader";
+import { MaterialIcons } from '@expo/vector-icons';
+
 
 const Logo = () => {
   return (
@@ -33,6 +36,10 @@ const Portfolio = ({ navigation, route }) => {
   const totalImg = route.params.totalImg;
   const favColor = route.params.favColor;
 
+  const handlePress=()=>{
+    alert('Cliqué')
+  }
+
   useLayoutEffect(() => {
     navigation.setOptions({
       // title: `Portfolio de ${name}`,
@@ -40,10 +47,15 @@ const Portfolio = ({ navigation, route }) => {
       // headerStyle: {
       //    backgroundColor: Platform.OS === "android" ? favColor : favColor,
       // },
+      headerRight: () => {
+        return (
+          <MaterialIconsHeader iconName='info-outline' iconColor="#fff" onPressIcon={handlePress} />
+        );
+      },
       headerLeft: () => {
         return (
           <TouchableOpacity onPress={()=>navigation.goBack()} >
-            <Text>go Back</Text>
+            <Text><MaterialIcons name="turn-left" size={24} color="#fff" />go Back</Text>
           </TouchableOpacity>
         );
       },
