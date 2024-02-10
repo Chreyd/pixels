@@ -14,7 +14,7 @@ import PressableItems from "../components/PressableItems";
 
 const Home = ({ navigation }) => {
   //   console.log(props);
-  // console.log(navigation);
+  console.log(navigation);
 
   /* 
   navigation.
@@ -73,9 +73,13 @@ const Home = ({ navigation }) => {
       />
     );
   };
+  const handleDrawer = () => {
+    navigation.toggleDrawer();
+  };
 
   return (
     <View style={globalStyles.container}>
+      <Button title="Ouvrir le Menu" onPress={handleDrawer} />
       <FlatList
         data={DATA}
         keyExtractor={(item) => item.id}
