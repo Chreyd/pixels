@@ -3,17 +3,19 @@ import React from "react";
 
 const Home = ({ navigation }) => {
   //   console.log(props);
-  console.log(navigation);
+//   console.log(navigation);
   const handlePress = () => {
     navigation.navigate("Porfolio");
   };
 
   /* 
   navigation.
-  navigate
-  push
-  goBack
-  replace
+  navigate : aller vers un autre stack
+  push : copie su stack
+  goBack: faire une retour en arrière vers le stack précédent
+  replace: remplacer le stack de la pile par un autre stack
+  popToTop: démonter tous les stacks e revenir au stack de départ
+  pop: revenir à au stack précédent 
   */
   return (
     <View style={styles.container}>

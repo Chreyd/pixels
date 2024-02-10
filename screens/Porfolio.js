@@ -1,13 +1,20 @@
 import { StyleSheet, Text, View, Button } from "react-native";
-import React from "react";
+import React, {useEffect} from "react";
 
 const Porfolio = ({navigation}) => {
+
+useEffect(() => {
+  return () => {
+    console.log("Portfolio démonté")
+  };
+}, [])
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Porfolio</Text>
       <Button
         title="Aller à Home"
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => navigation.popToTop()}
       />
       <Button
         title="Aller à Photo"

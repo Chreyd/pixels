@@ -7,7 +7,7 @@ const Photo = ({ navigation }) => {
       <Text style={styles.text}>Photo</Text>
       <Button
         title="Aller à Home"
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => navigation.popToTop()}
       />
       <Button title="Aller à Photo" onPress={() => navigation.push("Photo")} />
       <Button
