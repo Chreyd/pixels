@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Photo from "./screens/Photo";
 import Portfolio from "./screens/Portfolio";
+import colors from "./styles/colors";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -30,9 +31,29 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title: "Accueil",
+            headerStyle: {
+              backgroundColor: "olive",
+            },
+            headerTintColor: colors.white,
+          }}
+        />
         <Stack.Screen name="Photo" component={Photo} />
-        <Stack.Screen name="Portfolio" component={Portfolio} />
+        <Stack.Screen
+          name="Portfolio"
+          component={Portfolio}
+          options={{
+            title: "Portfolio",
+            headerStyle: {
+              backgroundColor: "olive",
+            },
+            headerTintColor: colors.white,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
