@@ -1,20 +1,11 @@
 import { StyleSheet, Text, View, Button } from "react-native";
 import React from "react";
+import { globalStyles } from "../styles/AppStyles";
 
 const Photo = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Photo</Text>
-      <Button
-        title="Aller à Home"
-        onPress={() => navigation.popToTop()}
-      />
-      <Button title="Aller à Photo" onPress={() => navigation.push("Photo")} />
-      <Button
-        title="Aller à Porfolio"
-        onPress={() => navigation.navigate("Porfolio")}
-      />
-      <Button title="retour" onPress={() => navigation.goBack()} />
+    <View style={globalStyles.container}>
+
     </View>
   );
 };

@@ -6,7 +6,7 @@ const Home = ({ navigation }) => {
   //   console.log(props);
   //   console.log(navigation);
 
-//   Affichage de data : partie 1
+  //   Affichage de data : partie 2
 
   /* 
   navigation.
@@ -52,14 +52,18 @@ const Home = ({ navigation }) => {
     },
   ];
 
-  const renderProfiles = ({item}) => {
-    return(
-        <View>
+  const renderProfiles = ({ item }) => {
+    return (
+      <View style={globalStyles.profilItem}>
         <Text style={globalStyles.titleText}>{item.name}</Text>
-        <Image source={{uri: item.img}} style={globalStyles.profileImg}/>
+        <Image source={{ uri: item.img }} style={globalStyles.profileImg} />
+        <View style={globalStyles.infoContainer}>
+          <Text style={globalStyles.info}>{item.country} </Text>
+          <Text style={globalStyles.info}>{item.totalImg} </Text>
         </View>
-    )
-  }; 
+      </View>
+    );
+  };
 
   return (
     <View style={globalStyles.container}>
