@@ -1,4 +1,5 @@
 export default {
     bleuClair : "lightblue",
-    white: '#fff'
+    white: '#fff',
+    clicked: "palevioletred"
 }

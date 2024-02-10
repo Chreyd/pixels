@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import React from "react";
 import { globalStyles } from "../styles/AppStyles";
+import colors from "../styles/colors";
 
 const Home = ({ navigation }) => {
   //   console.log(props);
@@ -63,10 +64,16 @@ const Home = ({ navigation }) => {
   const renderProfiles = ({ item }) => {
     return (
       <Pressable
-        style={globalStyles.profilItem}
+        style={({pressed})=>[
+            {
+                backgroundColor: pressed? colors.clicked: colors.white
+            },
+            globalStyles.profilItem
+        ]}
         onPress={() =>
           navigation.navigate("Portfolio", item)
         }
+
       >
         <Text style={globalStyles.titleText}>{item.name}</Text>
         <Image source={{ uri: item.img }} style={globalStyles.profileImg} />
