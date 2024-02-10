@@ -1,7 +1,16 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, Image } from "react-native";
 import React, { useEffect, useLayoutEffect } from "react";
 import { globalStyles } from "../styles/AppStyles";
 import { useRoute } from "@react-navigation/native";
+
+const Logo = () => {
+  return (
+    <Image
+      source={require("../assets/images/camera.png")}
+      style={{ width: 30, height: 30 }}
+    />
+  );
+};
 
 const Portfolio = ({ navigation, route }) => {
   /* useEffect((props) => {
@@ -14,16 +23,15 @@ const Portfolio = ({ navigation, route }) => {
   const country = route.params.country;
   const totalImg = route.params.totalImg;
 
-  navigation.setOptions({
-    title: `Portfolio de ${name}`,
-  });
+
 
   useLayoutEffect(() => {
     navigation.setOptions({
       title: `Portfolio de ${name}`,
+      headerTitle: ()=><Logo/>,
     }),
-    [navigation]
-  })
+      [navigation];
+  });
 
   return (
     <View style={globalStyles.container}>

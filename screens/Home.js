@@ -13,7 +13,7 @@ import colors from "../styles/colors";
 
 const Home = ({ navigation }) => {
   //   console.log(props);
-    console.log(navigation); 
+    // console.log(navigation); 
 
 
 
