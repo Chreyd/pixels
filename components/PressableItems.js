@@ -2,8 +2,13 @@ import { StyleSheet, Text, View, Pressable, Image } from "react-native";
 import React from "react";
 import { globalStyles } from "../styles/AppStyles";
 import colors from "../styles/colors";
+import { useNavigation } from '@react-navigation/native';
 
-const PressableItems = ({item,handleNavigate }) => {
+
+const PressableItems = ({item}) => {
+
+
+   const navigation= useNavigation();
   return (
     <Pressable
       style={({ pressed }) => [
@@ -12,7 +17,8 @@ const PressableItems = ({item,handleNavigate }) => {
         },
         globalStyles.profilItem,
       ]}
-      onPress={handleNavigate}
+      onPress={()=>navigation.navigate('Portfolio',item)}
+    //   onPress={handleNavigate}
     >
       <Text style={globalStyles.titleText}>{item.name}</Text>
       <Image source={{ uri: item.img }} style={globalStyles.profileImg} />

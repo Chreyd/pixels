@@ -67,7 +67,10 @@ const Home = ({ navigation }) => {
 
   const renderProfiles = ({ item }) => {
     return (
-      <PressableItems item= {item} handleNavigate= {() => navigation.navigate("Portfolio", item)} />
+      <PressableItems
+        item={item}
+        // handleNavigate={() => navigation.navigate("Portfolio", item)}
+      />
     );
   };
 
