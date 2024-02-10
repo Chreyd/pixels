@@ -1,24 +1,34 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Button } from "react-native";
+import React from "react";
 
-const Porfolio = () => {
+const Porfolio = ({navigation}) => {
   return (
-    <View  style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.text}>Porfolio</Text>
+      <Button
+        title="Aller à Home"
+        onPress={() => navigation.navigate("Home")}
+      />
+      <Button
+        title="Aller à Photo"
+        onPress={() => navigation.navigate("Photo")}
+      />
+      <Button
+        title="Aller à Porfolio"
+        onPress={() => navigation.push("Porfolio")}
+      />
     </View>
-  )
-}
+  );
+};
 
-export default Porfolio
+export default Porfolio;
 
 const styles = StyleSheet.create({
-    container:{
-        backgroundColor: "lightblue",
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    text:{
-        
-    }
-})
+  container: {
+    backgroundColor: "lightgreen",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: {},
+});
