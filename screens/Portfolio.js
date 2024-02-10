@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, Button, Image } from "react-native";
+import { StyleSheet, Text, View, Button, Image, Platform } from "react-native";
 import React, { useEffect, useLayoutEffect } from "react";
 import { globalStyles } from "../styles/AppStyles";
 import { useRoute } from "@react-navigation/native";
+import colors from "../styles/colors";
 
 const Logo = () => {
   return (
@@ -29,12 +30,19 @@ const Portfolio = ({ navigation, route }) => {
     navigation.setOptions({
       title: `Portfolio de ${name}`,
       headerTitle: ()=><Logo/>,
+      headerStyle:{
+        backgroundColor: Platform.OS === 'android'? colors.lightBrown: 'blue'
+      }
     }),
       [navigation];
   });
 
   return (
     <View style={globalStyles.container}>
+      <Text style={globalStyles.text}> OS: {Platform.OS} </Text>
+      <Text style={globalStyles.text}> Version: {Platform.Version} </Text>
+
+
       <Text style={globalStyles.text}> {name} </Text>
       <Text style={globalStyles.text}> {country} </Text>
       <Text style={globalStyles.text}> {totalImg} </Text>

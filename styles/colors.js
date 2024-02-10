@@ -1,5 +1,6 @@
 export default {
     bleuClair : "lightblue",
     white: '#fff',
-    clicked: "palevioletred"
+    clicked: "palevioletred",
+    lightBrown: "salmon"
 }
