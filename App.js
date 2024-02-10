@@ -4,14 +4,49 @@ import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+
+// > 16 | import * as Reanimated from 'react-native-reanimated';
+
 import Photo from "./screens/Photo";
 import Portfolio from "./screens/Portfolio";
 import colors from "./styles/colors";
+import Faq from "./screens/Faq";
 
 SplashScreen.preventAutoHideAsync();
 
 const Stack = createNativeStackNavigator();
 
+const Drawer = createDrawerNavigator();
+
+function MyDrawer() {
+  return (
+    <Drawer.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.lightBrown,
+        },
+        headerTintColor: colors.white,
+      }}
+    >
+      <Drawer.Screen
+        name="Home"
+        component={Home}
+        options={{
+          title: "Accueil",
+        }}
+      />
+      <Drawer.Screen
+        name="Faq"
+        component={Faq}
+        options={{
+          title: "Faq",
+        }}
+      />
+      
+    </Drawer.Navigator>
+  );
+}
 export default function App() {
   let [fontLoaded] = useFonts({
     "inriaSans-bold": require("./assets/fonts/InriaSans-Bold.ttf"),
@@ -33,19 +68,18 @@ export default function App() {
       <Stack.Navigator
         screenOptions={{
           headerStyle: {
-            backgroundColor: "olive",
+            backgroundColor: colors.lightBrown,
           },
           headerTintColor: colors.white,
         }}
       >
         <Stack.Screen
-          name="Home"
-          component={Home}
-          options={
-            {
-              // title: "Accueil",
-            }
-          }
+          name="MyDrawer"
+          component={MyDrawer}
+          options={{
+            title: "Accueil",
+            headerShown: false,
+          }}
         />
         <Stack.Screen
           name="Portfolio"
@@ -58,7 +92,7 @@ export default function App() {
               },
               headerTintColor: "#fff",
 
-/*               headerTitle: () => {
+              /*               headerTitle: () => {
                 return (
                   <TouchableOpacity>
                     <Text>Toto</Text>
