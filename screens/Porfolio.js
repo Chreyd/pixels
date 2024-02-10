@@ -11,12 +11,14 @@ const Porfolio = ({navigation}) => {
       />
       <Button
         title="Aller à Photo"
-        onPress={() => navigation.navigate("Photo")}
+        onPress={() => navigation.replace("Photo")}
       />
       <Button
         title="Aller à Porfolio"
         onPress={() => navigation.push("Porfolio")}
       />
+            <Button title="retour" onPress={() => navigation.goBack()} />
+
     </View>
   );
 };

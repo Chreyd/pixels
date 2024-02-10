@@ -2,10 +2,19 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 const Home = ({ navigation }) => {
-  // console.log(props);
+  //   console.log(props);
+  console.log(navigation);
   const handlePress = () => {
     navigation.navigate("Porfolio");
   };
+
+  /* 
+  navigation.
+  navigate
+  push
+  goBack
+  replace
+  */
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Home</Text>
@@ -15,6 +24,7 @@ const Home = ({ navigation }) => {
         onPress={() => navigation.navigate("Photo")}
       />
       <Button title="Aller à Home" onPress={() => navigation.push("Home")} />
+      <Button title="retour" onPress={() => navigation.goBack()} />
     </View>
   );
 };
