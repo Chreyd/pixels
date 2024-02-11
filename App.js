@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Platform } from "react-native";
 import Home from "./screens/Home";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
@@ -17,6 +17,7 @@ import colors from "./styles/colors";
 import Faq from "./screens/Faq";
 import MaterialIconsHeader from "./components/MaterialIconsHeader";
 import Selected from "./screens/Selected";
+import { StatusBar } from "expo-status-bar";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -173,15 +174,14 @@ export default function App() {
   }
 
   return (
+    <>
+    <StatusBar style="light"/>
     <NavigationContainer>
       <Tab.Navigator
-        activeColor={colors.lightBrown}
         screenOptions={{
-          headerStyle: {
-            backgroundColor: colors.lightBrown,
-          },
-          tabBarActiveTintColor: colors.lightBrown,
-          tabBarInactiveTintColor: "#333",
+          headerTintColor: colors.white
+          // tabBarActiveTintColor: colors.lightBrown,
+          // tabBarInactiveTintColor: "#333",
           // tabBarShowLabel: false,
           // tabBarActiveBackgroundColor: 'red'
         }}
@@ -192,6 +192,12 @@ export default function App() {
           options={{
             headerShown: false,
             tabBarLabel: "Accueil",
+            tabBarStyle:{backgroundColor: Platform.OS==="android"?colors.lightBrown: colors.white},
+            tabBarActiveTintColor: Platform.OS==="android"?colors.white: colors.lightBrown ,
+            tabBarInactiveTintColor: Platform.OS==="android"?colors.white: colors.darkGrey ,
+            headerStyle: {
+              backgroundColor: colors.lightBrown,
+            },
             tabBarIcon: ({ size, color }) => {
               return (
                 <MaterialIcons name="home-filled" size={size} color={color} />
@@ -205,6 +211,12 @@ export default function App() {
           options={{
             title: "Favoris",
             tabBarLabel: "Selection",
+            tabBarStyle:{backgroundColor: Platform.OS==="android"?colors.darkGrey: colors.white},
+            tabBarActiveTintColor: Platform.OS==="android"?colors.white: colors.lightBrown ,
+            tabBarInactiveTintColor: Platform.OS==="android"?colors.white: colors.darkGrey ,
+            headerStyle: {
+              backgroundColor: Platform.OS==="android"?colors.darkGrey: colors.lightBrown,
+            },
             tabBarIcon: ({ size, color }) => {
               return (
                 <MaterialIcons name="thumb-up" size={size} color={color} />
@@ -214,5 +226,6 @@ export default function App() {
         />
       </Tab.Navigator>
     </NavigationContainer>
+    </>
   );
 }
