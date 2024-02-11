@@ -45,7 +45,7 @@ export const DATA = [
             },
             {
                 id: 2, 
-                url: "https://cdn.pixabay.com/photo/2015/12/08/00/28/car-1081742_960_720.jpg",
+                url: "https://cdn.pixabay.com/photo/2016/02/13/13/11/oldtimer-1197800_1280.jpg",
                 title: "Ford",
                 photoDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam',
             },
@@ -98,7 +98,7 @@ export const DATA = [
             },
             {
                 id: 4, 
-                url: "https://cdn.pixabay.com/photo/2015/11/07/11/17/dog-1030992_960_720.jpg",
+                url: "https://cdn.pixabay.com/photo/2016/07/15/15/55/dachshund-1519374_1280.jpg",
                 title: "Chow-chow",
                 photoDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam',
             }
@@ -139,7 +139,7 @@ export const DATA = [
             },
             {
                 id: 5, 
-                url: "https://cdn.pixabay.com/photo/2016/03/27/00/01/australia-1281935_960_720.jpg",
+                url: "https://cdn.pixabay.com/photo/2016/11/13/12/52/kuala-lumpur-1820944_1280.jpg",
                 title: "Sydney",
                 photoDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae eum nostrum pariatur exercitationem earum natus, dolor placeat! Animi quaerat ducimus fuga sequi a culpa sit illo iste alias aperiam',
             }

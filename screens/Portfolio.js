@@ -14,6 +14,7 @@ import { useRoute } from "@react-navigation/native";
 import colors from "../styles/colors";
 import MaterialIconsHeader from "../components/MaterialIconsHeader";
 import { MaterialIcons } from "@expo/vector-icons";
+import TouchableImage from "../components/TouchableImage";
 
 const Logo = () => {
   return (
@@ -34,8 +35,9 @@ const Portfolio = ({ navigation, route }) => {
   const name = route.params.name;
   const country = route.params.country;
   const favColor = route.params.favColor;
-  const profileImg= route.params.img;
-  const desc= route.params.desc;
+  const profileImg = route.params.img;
+  const desc = route.params.desc;
+  const photoArray = route.params.photos;
 
   const handlePress = () => {
     alert("Cliqué");
@@ -74,12 +76,19 @@ const Portfolio = ({ navigation, route }) => {
   return (
     <ScrollView style={globalStyles.container}>
       <View style={{ backgroundColor: favColor, ...styles.profilInfo }}>
-        <Image style={styles.smallProfilImg} source={{uri: profileImg}} />
+        <Image style={styles.smallProfilImg} source={{ uri: profileImg }} />
         <Text style={styles.profilName}> {name} </Text>
       </View>
       <View style={styles.profilDescription}>
-      <Text style={styles.titleBioText}>Bio: </Text>
-      <Text style={styles.textBio}>{desc}</Text>
+        <Text style={styles.titleBioText}>Bio: </Text>
+        <Text style={styles.textBio}>{desc}</Text>
+      </View>
+      <View>
+        {
+          photoArray.map((photo)=>{
+            return(<TouchableImage key={photo.id} imgUrl={photo.url}  />)
+          })
+        }
       </View>
     </ScrollView>
   );
@@ -89,8 +98,6 @@ const styles = StyleSheet.create({
   profilInfo: {
     alignItems: "center",
     padding: 10,
-
-
   },
   smallProfilImg: {
     width: 150,
@@ -98,29 +105,29 @@ const styles = StyleSheet.create({
     borderRadius: 150 / 2,
     margin: 9,
     borderWidth: 6,
-    borderColor: colors.white, 
+    borderColor: colors.white,
   },
-  profilName:{
+  profilName: {
     fontFamily: "inriaSans-bold",
     color: colors.white,
     fontSize: 25,
   },
-  profilDescription:{
+  profilDescription: {
     color: colors.ghost,
     padding: 15,
     fontSize: 25,
-    fontFamily: 'inriaSans-Regular',
+    fontFamily: "inriaSans-Regular",
   },
-  titleBioText:{
+  titleBioText: {
     fontSize: 25,
     padding: 9,
     fontFamily: "inriaSans-bold",
   },
-  textBio:{
-    fontFamily: 'inriaSans-Regular',
+  textBio: {
+    fontFamily: "inriaSans-Regular",
     fontSize: 18,
     padding: 9,
-  }
+  },
 });
 
 export default Portfolio;
