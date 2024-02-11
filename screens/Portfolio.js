@@ -73,6 +73,10 @@ const Portfolio = ({ navigation, route }) => {
       [navigation];
   });
 
+  const selectPhoto = (photo) => {
+    navigation.navigate("Photo", photo);
+  };
+
   return (
     <ScrollView style={globalStyles.container}>
       <View style={{ backgroundColor: favColor, ...styles.profilInfo }}>
@@ -84,11 +88,16 @@ const Portfolio = ({ navigation, route }) => {
         <Text style={styles.textBio}>{desc}</Text>
       </View>
       <View>
-        {
-          photoArray.map((photo)=>{
-            return(<TouchableImage key={photo.id} imgUrl={photo.url}  />)
-          })
-        }
+        {photoArray.map((photo) => {
+          return (
+            <TouchableImage
+              key={photo.id}
+              imgUrl={photo.url}
+              imgTitle={photo.title}
+              onSelectPhoto={() => selectPhoto(photo)}
+            />
+          );
+        })}
       </View>
     </ScrollView>
   );
