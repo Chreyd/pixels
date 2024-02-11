@@ -3,5 +3,6 @@ export default {
     white: '#fff',
     clicked: "palevioletred",
     lightBrown: "salmon",
-    darkGrey: "#333"
+    darkGrey: "#333",
+    ghost: 'ghostwhite'
 }

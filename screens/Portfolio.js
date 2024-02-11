@@ -6,14 +6,14 @@ import {
   Image,
   Platform,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import React, { useEffect, useLayoutEffect } from "react";
 import { globalStyles } from "../styles/AppStyles";
 import { useRoute } from "@react-navigation/native";
 import colors from "../styles/colors";
 import MaterialIconsHeader from "../components/MaterialIconsHeader";
-import { MaterialIcons } from '@expo/vector-icons';
-
+import { MaterialIcons } from "@expo/vector-icons";
 
 const Logo = () => {
   return (
@@ -34,10 +34,12 @@ const Portfolio = ({ navigation, route }) => {
   const name = route.params.name;
   const country = route.params.country;
   const favColor = route.params.favColor;
+  const profileImg= route.params.img;
+  const desc= route.params.desc;
 
-  const handlePress=()=>{
-    alert('Cliqué')
-  }
+  const handlePress = () => {
+    alert("Cliqué");
+  };
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -48,13 +50,20 @@ const Portfolio = ({ navigation, route }) => {
       // },
       headerRight: () => {
         return (
-          <MaterialIconsHeader iconName='info-outline' iconColor="#fff" onPressIcon={handlePress} />
+          <MaterialIconsHeader
+            iconName="info-outline"
+            iconColor="#fff"
+            onPressIcon={handlePress}
+          />
         );
       },
       headerLeft: () => {
         return (
-          <TouchableOpacity onPress={()=>navigation.goBack()} >
-            <Text><MaterialIcons name="turn-left" size={24} color="#fff" />go Back</Text>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Text>
+              <MaterialIcons name="turn-left" size={24} color="#fff" />
+              go Back
+            </Text>
           </TouchableOpacity>
         );
       },
@@ -63,14 +72,55 @@ const Portfolio = ({ navigation, route }) => {
   });
 
   return (
-    <View style={globalStyles.container}>
-      <Text style={globalStyles.text}> OS: {Platform.OS} </Text>
-      <Text style={globalStyles.text}> Version: {Platform.Version} </Text>
-      <Text style={globalStyles.text}> {name} </Text>
-      <Text style={globalStyles.text}> {country} </Text>
-      <Text style={globalStyles.text}> {favColor} </Text>
-    </View>
+    <ScrollView style={globalStyles.container}>
+      <View style={{ backgroundColor: favColor, ...styles.profilInfo }}>
+        <Image style={styles.smallProfilImg} source={{uri: profileImg}} />
+        <Text style={styles.profilName}> {name} </Text>
+      </View>
+      <View style={styles.profilDescription}>
+      <Text style={styles.titleBioText}>Bio: </Text>
+      <Text style={styles.textBio}>{desc}</Text>
+      </View>
+    </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  profilInfo: {
+    alignItems: "center",
+    padding: 10,
+
+
+  },
+  smallProfilImg: {
+    width: 150,
+    height: 150,
+    borderRadius: 150 / 2,
+    margin: 9,
+    borderWidth: 6,
+    borderColor: colors.white, 
+  },
+  profilName:{
+    fontFamily: "inriaSans-bold",
+    color: colors.white,
+    fontSize: 25,
+  },
+  profilDescription:{
+    color: colors.ghost,
+    padding: 15,
+    fontSize: 25,
+    fontFamily: 'inriaSans-Regular',
+  },
+  titleBioText:{
+    fontSize: 25,
+    padding: 9,
+    fontFamily: "inriaSans-bold",
+  },
+  textBio:{
+    fontFamily: 'inriaSans-Regular',
+    fontSize: 18,
+    padding: 9,
+  }
+});
 
 export default Portfolio;
