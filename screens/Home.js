@@ -14,7 +14,7 @@ import PressableItems from "../components/PressableItems";
 
 const Home = ({ navigation }) => {
   //   console.log(props);
-  console.log(navigation);
+//   console.log(navigation);
 
   /* 
   navigation.
