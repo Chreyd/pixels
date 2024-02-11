@@ -33,7 +33,6 @@ const Portfolio = ({ navigation, route }) => {
   /* useRoute pour récupérer les params aussi fonctionne  */
   const name = route.params.name;
   const country = route.params.country;
-  const totalImg = route.params.totalImg;
   const favColor = route.params.favColor;
 
   const handlePress=()=>{
@@ -69,7 +68,6 @@ const Portfolio = ({ navigation, route }) => {
       <Text style={globalStyles.text}> Version: {Platform.Version} </Text>
       <Text style={globalStyles.text}> {name} </Text>
       <Text style={globalStyles.text}> {country} </Text>
-      <Text style={globalStyles.text}> {totalImg} </Text>
       <Text style={globalStyles.text}> {favColor} </Text>
     </View>
   );

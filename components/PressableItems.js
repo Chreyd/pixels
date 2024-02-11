@@ -24,7 +24,7 @@ const PressableItems = ({item}) => {
       <Image source={{ uri: item.img }} style={globalStyles.profileImg} />
       <View style={globalStyles.infoContainer}>
         <Text style={globalStyles.info}>{item.country} </Text>
-        <Text style={globalStyles.info}>{item.totalImg} </Text>
+        <Text style={globalStyles.info}>{item.photos.length} </Text>
       </View>
     </Pressable>
   );
