@@ -1,23 +1,60 @@
-import { StyleSheet, Text, View, Button } from "react-native";
-import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  ScrollView,
+  Image,
+} from "react-native";
+import React, { useLayoutEffect } from "react";
 import { globalStyles } from "../styles/AppStyles";
 
-const Photo = ({ navigation }) => {
-  return (
-    <View style={globalStyles.container}>
+const Photo = ({ navigation, route }) => {
+  /*   const url = route.params.url;
+  const title = route.params.title;
+  const photoDesc = route.params.photoDesc; */
 
-    </View>
+  const { url, title, photoDesc } = route.params;
+
+  /*   useLayoutEffect(() => {
+    navigation.setOptions({
+      title: title,
+    }),
+      [navigation, title];
+  }); */
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: title.toUpperCase(),
+    });
+  }, [navigation, title]);
+
+  return (
+    <ScrollView style={globalStyles.container}>
+      <Image style={styles.selectedImg} source={{ uri: url }} />
+      <View style={styles.photoDescription}>
+        <Text style={globalStyles.titleText}> {title} </Text>
+        <Text style={styles.textDescription}> {photoDesc} </Text>
+        <Text style={styles.textDescription}> {photoDesc} </Text>
+      </View>
+    </ScrollView>
   );
 };
 
 export default Photo;
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "orange",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+  selectedImg: {
+    width: "100%",
+    height: 300,
   },
-  text: {},
+  photoDescription: {
+    fontFamily: "inriaSans-Regular",
+    fontSize: 25,
+    padding: 15,
+  },
+  textDescription: {
+    fontFamily: "inriaSans-Regular",
+    fontSize: 17,
+    padding: 9,
+  },
 });
