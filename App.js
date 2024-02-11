@@ -143,6 +143,19 @@ function MyDrawer() {
 function MyTabs() {
   return <Tab.Navigator></Tab.Navigator>;
 }
+
+function SelectedStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Selected"
+        component={Selected}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name="Photo" component={Photo} options={{title: 'Poto'}} />
+    </Stack.Navigator>
+  );
+}
 export default function App() {
   let [fontLoaded] = useFonts({
     "inriaSans-bold": require("./assets/fonts/InriaSans-Bold.ttf"),
@@ -169,7 +182,7 @@ export default function App() {
           },
           tabBarActiveTintColor: colors.lightBrown,
           tabBarInactiveTintColor: "#333",
-          tabBarShowLabel: false,
+          // tabBarShowLabel: false,
           // tabBarActiveBackgroundColor: 'red'
         }}
       >
@@ -188,8 +201,10 @@ export default function App() {
         />
         <Tab.Screen
           name="Likes"
-          component={Selected}
+          component={SelectedStack}
           options={{
+            title: "Favoris",
+            tabBarLabel: "Selection",
             tabBarIcon: ({ size, color }) => {
               return (
                 <MaterialIcons name="thumb-up" size={size} color={color} />
